@@ -1,15 +1,16 @@
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
+// Function to write random password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
 
+//Function to generate a random password using character types chosen by user
 function generatePassword() {
 
+  //Validation check to see if the user is within correct range for the password length
   let pwdLength = window.prompt("Please specify password length.");
   if (pwdLength < 8 || pwdLength > 128) {
     window.alert("Password length should be at least 8 characters and no more than 128 characters!");
@@ -17,6 +18,7 @@ function generatePassword() {
     return emptyString;
   }
 
+  //Confirming user for lower case character types
   let lowerCase = window.confirm("Do you want lower case character types?");
   var lettersLC;
   if (lowerCase) {
@@ -25,6 +27,7 @@ function generatePassword() {
     lettersLC = ("");
   }
 
+  //Confirming user for upper case character types
   let upperCase = window.confirm("Do you want upper case character types?");
   var lettersUC;
   if (upperCase) {
@@ -33,6 +36,7 @@ function generatePassword() {
     lettersUC = ("");
   }
 
+  //Confirming user for numeric character types
   let numeric = window.confirm("Do you want numeric character types?");
   var lettersNum;
   if (numeric) {
@@ -41,6 +45,7 @@ function generatePassword() {
     lettersNum = ("");
   }
 
+  //Confirming user for special character types
   let specialChar = window.confirm("Do you want special character types?");
   var lettersSC;
   if (specialChar) {
@@ -49,10 +54,12 @@ function generatePassword() {
     lettersSC = ("");
   }
 
+  //Creating the entire chosen character types as a string and finding its length
   let lettersChosen = lettersLC + lettersUC + lettersNum + lettersSC;
   let lengthLettersChosen = lettersChosen.length;
   let pwdGenerated = "";
 
+  //Generating a random password and return it to the writePassword() function
   if (lengthLettersChosen != 0) {
     for (let i = 0; i < pwdLength; i++) {
       let letterGenerated = lettersChosen[Math.floor(Math.random() * lengthLettersChosen)];
@@ -62,5 +69,5 @@ function generatePassword() {
   return pwdGenerated;
 }
 
-// Add event listener to generate button
+// Event listener added to the Generate Password button
 generateBtn.addEventListener("click", writePassword);
