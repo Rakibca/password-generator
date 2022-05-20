@@ -10,7 +10,7 @@ Users can choose between lower case, upper case, numeric and special characters.
 
 
 ### **Technolgies & Acceptance Criteria:**
-Rakibul's Professional Portfolio website uses these technologies to work properly:
+This website uses these technologies to work properly:
 - [HTML] - HyperText Markup Language.
 - [CSS] - Cascading Style Sheets used as the style sheet language.
 - [JS] - Javascript Language.
