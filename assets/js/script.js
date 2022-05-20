@@ -10,8 +10,14 @@ function writePassword() {
 //Function to generate a random password using character types chosen by user
 function generatePassword() {
 
-  //Validation check to see if the user is within correct range for the password length
+  //Validation checks to see if the user is within the correct range for password length and inputs an integer
   let pwdLength = window.prompt("Please specify password length.");
+  if (pwdLength != parseInt(pwdLength)) {
+    window.alert("Password length should be an integer!");
+    let emptyString = "";
+    return emptyString;
+  }
+
   if (pwdLength < 8 || pwdLength > 128) {
     window.alert("Password length should be at least 8 characters and no more than 128 characters!");
     let emptyString = "";
